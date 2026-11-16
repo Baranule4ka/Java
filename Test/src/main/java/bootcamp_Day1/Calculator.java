@@ -1,30 +1,54 @@
+
 package bootcamp_Day1;
-
 public class Calculator {
-
-    public static void main(String[] args) {
-        //Activity10
-        System.out.println("Activity10");
-        System.out.println("Addition: " + add(10, 5));
-        System.out.println("Multiplication: " + multiply(10, 5));
-        System.out.println("Subtraction: " + subtract(10, 5));
-        System.out.println("Division: " + divide(10, 5));
-
+    private String calculatorType;
+    public static final String CALC_TYPE_BASIC = "Basic";
+        public Calculator() {
+        this.calculatorType = CALC_TYPE_BASIC;
     }
-
-    public static int add(int a, int b) {
-        return a + b;
+    public Calculator(String calculatorType) {
+        this.calculatorType = calculatorType;
     }
-
-    public static int multiply(int a, int b) {
-        return a * b;
+    // Getter
+    public String getCalculatorType() {
+        return calculatorType;
     }
-
-    public static int subtract(int a, int b) {
-        return a - b;
+    // Setter
+    public void setCalculatorType(String calculatorType) {
+        this.calculatorType = calculatorType;
     }
+    // Add
+    public int add(int x, int y) {
+        int sum = x + y;
+        return sum;
+    }
+    // Subtract
+    public int subtract(int x, int y) {
+        int diff = 0;
+        if (x > y) {
+            diff = x - y;
+        } else {
+            diff = y - x;
+        }
+        return diff;
+    }
+    // Multiply all numbers in an array
+    public int multiply(int[] numbers) {
+        int temp = 1;
 
-    public static double divide(int a, int b) {
-        return (double) a / b;
+        for (int number : numbers) {
+            temp = temp * number;
+        }
+
+        return temp;
+    }
+    // Divide
+    public int divide(int x, int y) {
+        if (y == 0) {
+            throw new ArithmeticException("Cannot divide by zero");
+        }
+
+        int divValue = x / y;
+        return divValue;
     }
 }
