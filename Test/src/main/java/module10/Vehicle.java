@@ -1,4 +1,7 @@
 package module10;
 
-public class Vehicle {
+public interface Vehicle {
+    void start();
+
+    void stop();
 }
